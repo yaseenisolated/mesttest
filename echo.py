@@ -18,4 +18,4 @@ def hello_world():
     counter += 1
 
     print('I received a request')
-    return 'Hello MEST'
+    return 'Hello MEST\n'
