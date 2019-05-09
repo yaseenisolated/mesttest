@@ -7,8 +7,8 @@ jobs:
     environment:
       DEPLOYMENT_NAME: web
       PROJECT_ID: yaseenh-gke-dev
-      CLUSTER_NAME: ci-cd
-      CLUSTER_NAME_STAG: ci-cd-stag
+      CLUSTER_NAME: proxy-test
+      CLUSTER_NAME_STAG: proxy-test
       CLOUDSDK_COMPUTE_ZONE: us-central1-a
       CONTAINER_NAME: web
       IMAGE: web
