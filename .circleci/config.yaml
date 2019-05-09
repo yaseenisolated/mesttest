@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: wecs/circle-ci-gcloud-node:0.1.0
+    working_directory: ~/workspace
+    environment:
+      DEPLOYMENT_NAME: web
+      PROJECT_ID: yaseenh-gke-dev
+      CLUSTER_NAME: ci-cd
+      CLUSTER_NAME_STAG: ci-cd-stag
+      CLOUDSDK_COMPUTE_ZONE: us-central1-a
+      CONTAINER_NAME: web
+      IMAGE: web
+      REG_ID: web
+      REG_ID_PROD: web
+      IMG_TAG: 0.1.0
+      PROJECT_NAME: yaseenh-gke-dev
+      DEPLOYMENT_ENVIRONMENT: staging
+    steps:
+      - checkout
+      - run:
+          name: Build and Deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./deployment.sh
+            fi  
